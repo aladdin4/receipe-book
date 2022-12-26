@@ -1,15 +1,22 @@
-<h2>servers works!</h2>
-<div>
-  <span>the server age:</span>
-  <input [(ngModel)]="age" />
+<div class="container bg-primary">
+  <div class="container p-5 bg-success">
+    <div class="container p-3 bg-warning">
+
+  <h2>servers works! now with boot strap !</h2>
+  <div>
+    <span>the server age:</span>
+    <input [(ngModel)]="age" />
+  </div>
+  <h3>Servers have been serving for {{ age.length }}</h3>
+  <button
+    type="button"
+    class="btn btn-primary"
+    [disabled]="!age.length"
+    (click)="resetField()"
+  >
+    his
+  </button>
+  <app-server></app-server>
+  
 </div>
-<h3>Servers have been serving for {{ age.length }}</h3>
-<button
-  type="button"
-  class="btn btn-primary"
-  [disabled]="!age.length"
-  (click)="resetField()"
->
-  his
-</button>
-<app-server></app-server>
+</div></div>
