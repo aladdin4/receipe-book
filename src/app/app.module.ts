@@ -6,7 +6,8 @@ import { ServersComponent } from './servers/servers.component';
 import { ServerComponent } from './server/server.component';
 import { WarningComponent } from './warning/warning.component';
 import { SuccessComponent } from './success/success.component';
-
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,7 @@ import { SuccessComponent } from './success/success.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule, NgbModule],
 })
 export class AppModule {}
 console.log('working');

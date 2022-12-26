@@ -5,4 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css'],
 })
-export class ServersComponent {}
+export class ServersComponent {
+  age = '';
+  resetField = function () {
+    this.age = null;
+  };
+}
