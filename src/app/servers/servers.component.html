@@ -1,22 +1,20 @@
-<div class="container bg-primary">
-  <div class="container p-5 bg-success">
-    <div class="container p-3 bg-warning">
-
-  <h2>servers works! now with boot strap !</h2>
-  <div>
-    <span>the server age:</span>
-    <input [(ngModel)]="age" />
+<div class="container bg-dark p-5 mt-2">
+  <div *ngIf="displaySecrets; else hider" [ngStyle]="{ color: 'orange' }">
+    Secret Password: Tuna
   </div>
-  <h3>Servers have been serving for {{ age.length }}</h3>
-  <button
-    type="button"
-    class="btn btn-primary"
-    [disabled]="!age.length"
-    (click)="resetField()"
-  >
-    his
+
+  <ng-template #hider>
+    <p [ngStyle]="{ color: 'orange' }">
+      Click The Btn To Show The Hidden Details
+    </p>
+  </ng-template>
+  <button type="button" class="btn btn-warning" (click)="showSecret()">
+    Display Details
   </button>
-  <app-server></app-server>
-  
+  <br />
+  <div *ngFor="let click of clicks; let i = index">
+    <small [ngStyle]="{ color: 'orange', backgroundColor: setColor(i) }">{{
+      clicks[i]
+    }}</small>
+  </div>
 </div>
-</div></div>

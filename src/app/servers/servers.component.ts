@@ -6,8 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./servers.component.css'],
 })
 export class ServersComponent {
-  age = '';
-  resetField = function () {
-    this.age = null;
+  displaySecrets = false;
+  clicks = [];
+  showSecret = function () {
+    this.displaySecrets = !this.displaySecrets;
+    this.clicks.push('clicked at:' + new Date().getSeconds());
+  };
+  setColor = function (index) {
+    if (index >= 5) {
+      return 'blue';
+    } else {
+      return 'white';
+    }
   };
 }
