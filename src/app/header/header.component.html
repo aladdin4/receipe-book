@@ -1,18 +1,48 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a href="#" class="navbar-brand">Recipe Book</a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav nav">
-        <li><a href="#">Redipes</a></li>
-        <li><a href="#">Shooping List</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdwn">
-          <ul class="dropdown-menu"></ul>
+<nav class="navbar ps-3 pe-5 navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Recipe Book</a>
+  <button
+    class="navbar-toggler lis"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="w-100">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Shooping List</a>
         </li>
       </ul>
+    </div>
+
+    <div
+      class="nav-item dropdown"
+      style="display: flex; justify-content: flex-end; align-items: center"
+    >
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Manage
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Save Data</a>
+        <a class="dropdown-item" href="#">Fetch Data</a>
+      </div>
     </div>
   </div>
 </nav>
