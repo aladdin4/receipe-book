@@ -1,15 +1,16 @@
-<div class="row bg-secondary">
+<div class="row">
   <div class="col-12">
     <app-shopping-edit></app-shopping-edit>
     <hr />
-    <p>The List</p>
-  </div>
-  <div class="col-12">
-    <div class="col-12 bg-danger">The item</div>
-    <div class="col-12 bg-danger">The item</div>
-
-    <div class="col-12 bg-danger">The item</div>
-    <div class="col-12 bg-danger">The item</div>
-    <div class="col-12 bg-danger">The item</div>
+    <div class="list-group">
+      <a
+        href="#"
+        class="list-group-item list-group-item-action"
+        aria-current="true"
+        *ngFor="let ingred of Ingredients"
+      >
+        {{ ingred.name }} ({{ ingred.amount }})
+      </a>
+    </div>
   </div>
 </div>
