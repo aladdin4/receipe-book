@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -8,21 +8,22 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent {
   Recipes: Recipe[] = [];
+  @Output() createSpan = new EventEmitter<any>();
+
+  @ViewChild('test', { static: true }) test;
 
   constructor() {
-    this.Recipes.push(
-      new Recipe(
-        'test recipe',
-        "our first recipe, it's hardcoded",
-        'https://i0.hippopx.com/photos/891/700/843/asparagus-italy-piemonte-piedmont-preview.jpg'
-      )
-    );
-    this.Recipes.push(
-      new Recipe(
-        'test recipe',
-        "our first recipe, it's hardcoded",
-        'https://i0.hippopx.com/photos/891/700/843/asparagus-italy-piemonte-piedmont-preview.jpg'
-      )
-    );
+    console.log('test', this.test);
+  }
+  addRecipe(val) {
+    console.log(val);
+    this.createSpan.emit();
+    // this.Recipes.push(
+    //   new Recipe(
+    //     'test recipe',
+    //     "our first recipe, it's hardcoded",
+    //     'https://i0.hippopx.com/photos/891/700/843/asparagus-italy-piemonte-piedmont-preview.jpg'
+    //   )
+    // );
   }
 }
