@@ -6,14 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipes.component.css'],
 })
 export class RecipesComponent {
-  repeats: string[];
-
-  constructor() {
-    this.repeats = [];
-  }
-  onAddEvent(e) {
-    // console.log('called');
-    // console.log('e', e);
-    this.repeats.push('hi');
+  currentRecipe: {
+    name: string;
+    path: string;
+    description: string;
+    ingredients: string[];
+  };
+  addRecipe(recipe) {
+    this.currentRecipe = recipe;
   }
 }

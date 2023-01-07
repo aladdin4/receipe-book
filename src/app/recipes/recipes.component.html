@@ -1,11 +1,8 @@
 <div class="row mt-2">
   <div class="col-5">
-    <app-recipe-list (createSpan)="onAddEvent($event)"></app-recipe-list>
+    <app-recipe-list (setCurrentRecipe)="addRecipe($event)"></app-recipe-list>
   </div>
   <div class="col-7">
-    <app-recipe-detail></app-recipe-detail>
-  </div>
-  <div class="col-12" *ngFor="let r of repeats">
-    <span>repeated via event</span>
+    <app-recipe-detail [recipe]="currentRecipe"></app-recipe-detail>
   </div>
 </div>
