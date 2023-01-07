@@ -10,6 +10,9 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { GameControlComponent } from './Game Assignment/game-control/game-control.component';
+import { OddComponent } from './Game Assignment/odd/odd.component';
+import { EvenComponent } from './Game Assignment/even/even.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,12 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
+    GameControlComponent,
+    OddComponent,
+    EvenComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
   imports: [BrowserModule, FormsModule],
 })
 export class AppModule {}
-console.log('working');
