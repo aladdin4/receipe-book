@@ -1,13 +1,13 @@
-export class Recipe {
+export class RecipeType {
   name: string;
   description: string;
   imagePath: string;
-  /**
-   *For creating recipe items, I suppose?
-   */
-  constructor(name: string, desc: string, path: string) {
+  ingredients: string[];
+
+  constructor(name: string, desc: string, path: string, ingred: string[]) {
     this.name = name;
     this.description = desc;
     this.imagePath = path;
+    this.ingredients = ingred;
   }
 }

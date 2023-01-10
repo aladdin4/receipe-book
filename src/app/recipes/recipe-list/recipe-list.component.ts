@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
-import { Recipe } from '../recipe.model';
+import { RecipeType } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,14 +7,9 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css'],
 })
 export class RecipeListComponent {
-  Recipes: Recipe[] = [];
+  Recipes: RecipeType[] = [];
 
-  @Output() setCurrentRecipe = new EventEmitter<{
-    name: string;
-    imagePath: string;
-    description: string;
-    ingredients: string[];
-  }>();
+  @Output() setCurrentRecipe = new EventEmitter<RecipeType>();
 
   fixedRecipe = {
     name: 'test recipe',
@@ -33,6 +28,7 @@ export class RecipeListComponent {
   };
 
   addRecipe() {
+    console.log('clicked');
     if (this.Recipes.length % 2) {
       this.Recipes.push(this.fixedRecipe);
     } else {

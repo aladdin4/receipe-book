@@ -14,6 +14,7 @@ export class GameControlComponent {
 
   startCreating() {
     //first call for init
+    console.log('working');
     this.setTime();
     this.state = 'is running';
 

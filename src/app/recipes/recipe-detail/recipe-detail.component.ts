@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Ingredient } from 'src/app/Shared/Ingredient.model';
+import { RecipeType } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -7,10 +8,5 @@ import { Ingredient } from 'src/app/Shared/Ingredient.model';
   styleUrls: ['./recipe-detail.component.css'],
 })
 export class RecipeDetailComponent {
-  @Input() recipe: {
-    name: string;
-    imagePath: string;
-    description: string;
-    ingredients: string[];
-  };
+  @Input() recipe: RecipeType;
 }
