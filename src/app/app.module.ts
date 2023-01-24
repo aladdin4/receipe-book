@@ -13,6 +13,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { GameControlComponent } from './Game Assignment/game-control/game-control.component';
 import { OddComponent } from './Game Assignment/odd/odd.component';
 import { EvenComponent } from './Game Assignment/even/even.component';
+import { DropdownDirective } from './Shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EvenComponent } from './Game Assignment/even/even.component';
     GameControlComponent,
     OddComponent,
     EvenComponent,
+    DropdownDirective,
   ],
   providers: [],
   bootstrap: [AppComponent],
