@@ -7,12 +7,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
   @Output() showRecipe = new EventEmitter<'recipe'>();
-  openRecipe() {
-    this.showRecipe.emit('recipe');
-  }
-
   @Output() showShoppingList = new EventEmitter<'shoppingList'>();
+
   openShoppingList() {
     this.showShoppingList.emit('shoppingList');
+  }
+
+  openRecipe() {
+    this.showRecipe.emit('recipe');
   }
 }
