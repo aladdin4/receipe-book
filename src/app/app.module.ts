@@ -14,7 +14,6 @@ import { GameControlComponent } from './Game Assignment/game-control/game-contro
 import { OddComponent } from './Game Assignment/odd/odd.component';
 import { EvenComponent } from './Game Assignment/even/even.component';
 import { DropdownDirective } from './Shared/dropdown.directive';
-import { TestDriveDirective } from './header/test-drive.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,6 @@ import { TestDriveDirective } from './header/test-drive.directive';
     OddComponent,
     EvenComponent,
     DropdownDirective,
-    TestDriveDirective,
   ],
   providers: [],
   bootstrap: [AppComponent],
