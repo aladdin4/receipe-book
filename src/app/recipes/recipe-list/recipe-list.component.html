@@ -2,12 +2,9 @@
   <div class="col-12">
     <button class="btn btn-success" (click)="addRecipe()">New Recipe</button>
     <hr />
-    <div class="list-group">
-      <app-recipe-item
-        *ngFor="let recipe of Recipes"
-        [currentRecipe]="recipe"
-        (exportRecipe)="passRecipeToParent($event)"
-      ></app-recipe-item>
+    <div class="list-group ">
+      test text
+      <app-recipe-item *ngFor="let recipe of Recipes" [currentRecipe]="recipe" (exportRecipe)="passRecipeToParent($event)"></app-recipe-item>
     </div>
   </div>
 </div>
