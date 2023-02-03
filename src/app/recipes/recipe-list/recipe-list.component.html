@@ -3,8 +3,8 @@
     <button class="btn btn-success" (click)="addRecipe()">New Recipe</button>
     <hr />
     <div class="list-group ">
-      test text
-      <app-recipe-item *ngFor="let recipe of Recipes" [currentRecipe]="recipe" (exportRecipe)="passRecipeToParent($event)"></app-recipe-item>
+      <app-recipe-item *ngFor="let recipe of Recipes" [currentRecipe]="recipe"
+        (exportRecipe)="passRecipeToParent($event)"></app-recipe-item>
     </div>
   </div>
 </div>

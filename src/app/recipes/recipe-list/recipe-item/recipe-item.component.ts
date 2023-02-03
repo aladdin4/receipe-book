@@ -1,6 +1,7 @@
-import { HostBinding } from '@angular/core';
+import { Host, HostBinding, Inject } from '@angular/core';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RecipeType } from '../../recipe.model';
+import { RecipeListComponent } from '../recipe-list.component';
 
 @Component({
   selector: 'app-recipe-item',
@@ -10,7 +11,7 @@ import { RecipeType } from '../../recipe.model';
 export class RecipeItemComponent {
   @Input() currentRecipe: RecipeType;
   @Output() exportRecipe = new EventEmitter<RecipeType>();
-  @HostBinding('class') classes = 'text-danger';
+
   onExportRecipe() {
     this.exportRecipe.emit(this.currentRecipe);
   }

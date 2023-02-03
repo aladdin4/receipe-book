@@ -6,7 +6,6 @@ import { Directive, ElementRef, HostBinding, HostListener, Renderer2 } from '@an
 export class DropdownDirective {
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
-
   @HostListener('click') toggleDropDown() {
     let menu = this.el.nativeElement.children[1];
 
