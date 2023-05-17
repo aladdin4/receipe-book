@@ -10,6 +10,7 @@ import { RecipeListComponent } from '../recipe-list.component';
 })
 export class RecipeItemComponent {
   @Input() currentRecipe: RecipeType;
+
   @Output() exportRecipe = new EventEmitter<RecipeType>();
 
   onExportRecipe() {

@@ -28,7 +28,6 @@ export class RecipeListComponent {
   };
 
   addRecipe() {
-    console.log('clicked');
     if (this.Recipes.length % 2) {
       this.Recipes.push(this.fixedRecipe);
     } else {

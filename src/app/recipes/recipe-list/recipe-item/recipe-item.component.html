@@ -1,14 +1,20 @@
-<a href="#" class="list-group-item list-group-item-action" (click)="onExportRecipe()">
+<a
+  href="#"
+  class="list-group-item list-group-item-action"
+  (click)="onExportRecipe()"
+>
   <div class="row">
     <div class="pull-left col-6">
       <h4>{{ currentRecipe.name }}</h4>
       <p>{{ currentRecipe.description }}</p>
     </div>
     <span class="pull-right col-6 pb-2">
-      <img [src]="currentRecipe.imagePath"
-           alt=""
-           class="image-responsive"
-           style="width: -webkit-fill-available" />
+      <img
+        [src]="currentRecipe.imagePath"
+        alt=""
+        class="image-responsive"
+        style="width: -webkit-fill-available"
+      />
     </span>
   </div>
 </a>
