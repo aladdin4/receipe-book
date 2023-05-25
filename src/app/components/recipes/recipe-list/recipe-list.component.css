@@ -1,0 +1,11 @@
+.main-list {
+  display: block;
+  height: 80vh;
+  overflow: auto;
+  width: 93%;
+  width: 100%;
+}
+
+.list-head {
+  margin-top: 10px;
+}

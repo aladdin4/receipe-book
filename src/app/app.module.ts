@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { GameControlComponent } from './Game Assignment/game-control/game-control.component';
-import { OddComponent } from './Game Assignment/odd/odd.component';
-import { EvenComponent } from './Game Assignment/even/even.component';
+import { HeaderComponent } from './components/header/header.component';
+import { RecipesComponent } from './components/recipes/recipes.component';
+import { RecipeDetailComponent } from './components/recipes/recipe-detail/recipe-detail.component';
+import { RecipeListComponent } from './components/recipes/recipe-list/recipe-list.component';
+import { RecipeItemComponent } from './components/recipes/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './components/shopping-list/shopping-edit/shopping-edit.component';
+
 import { DropdownDirective } from './Shared/dropdown.directive';
+import { RecipeService } from './services/recipeService/recipe-service.service';
 
 @NgModule({
   declarations: [
@@ -24,13 +23,10 @@ import { DropdownDirective } from './Shared/dropdown.directive';
     RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    GameControlComponent,
-    OddComponent,
-    EvenComponent,
     DropdownDirective,
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent],
   imports: [BrowserModule, FormsModule],
 })
-export class AppModule { }
+export class AppModule {}

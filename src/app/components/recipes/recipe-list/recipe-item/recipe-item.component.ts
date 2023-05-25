@@ -1,7 +1,8 @@
 import { Host, HostBinding, Inject } from '@angular/core';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RecipeType } from '../../recipe.model';
+import { RecipeType } from '../../../../Shared/recipe.model';
 import { RecipeListComponent } from '../recipe-list.component';
+import { RecipeService } from 'src/app/services/recipeService/recipe-service.service';
 
 @Component({
   selector: 'app-recipe-item',
@@ -9,11 +10,10 @@ import { RecipeListComponent } from '../recipe-list.component';
   styleUrls: ['./recipe-item.component.css'],
 })
 export class RecipeItemComponent {
+  constructor(private recipeService: RecipeService) {}
   @Input() currentRecipe: RecipeType;
 
-  @Output() exportRecipe = new EventEmitter<RecipeType>();
-
-  onExportRecipe() {
-    this.exportRecipe.emit(this.currentRecipe);
+  getRecipe(id: number) {
+    this.recipeService.GetRecipe(id);
   }
 }

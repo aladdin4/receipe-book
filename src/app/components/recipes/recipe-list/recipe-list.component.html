@@ -1,12 +1,14 @@
-<div class="row">
+<div class="list-head">
+  <button class="btn btn-success" (click)="addNewRecipe()">New Recipe</button>
+  <hr />
+</div>
+
+<div class="row main-list">
   <div class="col-12">
-    <button class="btn btn-success" (click)="addRecipe()">New Recipe</button>
-    <hr />
     <div class="list-group">
       <app-recipe-item
         *ngFor="let recipe of Recipes"
         [currentRecipe]="recipe"
-        (exportRecipe)="passRecipeToParent($event)"
       ></app-recipe-item>
     </div>
   </div>

@@ -1,20 +1,35 @@
 <span *ngIf="recipe">
-  <div class="row">
+  <div class="row" style="margin-top: 17px">
     <div class="col-12">
-      <img src="{{ recipe.imagePath }}" class="img-responsive" alt="" />
+      <img
+        src="{{ recipe.imagePath }}"
+        class="img-responsive recipe-lg-img"
+        alt=""
+      />
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <h1>{{ recipe.name }}</h1>
+      <h1>{{ recipe.id }}. {{ recipe.name }}</h1>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <div class="btn-group" role="group" appDropdown>
-        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-          aria-expanded="false"> Manage Recipe </button>
-        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="margin-top: 40px">
+      <div class="btn-group" appDropdown role="group">
+        <button
+          id="btnGroupDrop1"
+          type="button"
+          class="btn btn-primary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Manage Recipe
+        </button>
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="btnGroupDrop1"
+          style="margin-top: 40px"
+        >
           <li><a class="dropdown-item" href="#">To Shopping List</a></li>
           <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
           <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
