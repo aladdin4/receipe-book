@@ -1,21 +1,23 @@
+import { Ingredient } from './Ingredient.model';
+
 export class RecipeType {
   id: number;
   name: string;
   description: string;
   imagePath: string;
-  ingredients: string[];
+  ingredients: Ingredient[];
 
   constructor(
     id: number,
     name: string,
     desc: string,
     path: string,
-    ingred: string[]
+    ingredList: Ingredient[]
   ) {
     this.id = id;
     this.name = name;
     this.description = desc;
     this.imagePath = path;
-    this.ingredients = ingred;
+    this.ingredients = ingredList;
   }
 }

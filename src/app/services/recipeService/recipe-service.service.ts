@@ -1,13 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { RecipeType } from 'src/app/Shared/recipe.model';
+import { ShoppinglistService } from '../shoppinhlistService/shoppinglist.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
   //main data and current recipe displayed. (supposed to be from back end)
-  constructor() {}
-
   //our to fixed recipes that we base every thing on
   fixedRecipe: RecipeType = {
     id: 0,
@@ -15,7 +14,11 @@ export class RecipeService {
     description: "our first recipe, it's hardcoded",
     imagePath:
       'https://i0.hippopx.com/photos/891/700/843/asparagus-italy-piemonte-piedmont-preview.jpg',
-    ingredients: ['tomatos (10)', 'potatoes (15)', 'meat (5kg)'],
+    ingredients: [
+      { name: 'tomatos', amount: 10 },
+      { name: 'potatoes', amount: 15 },
+      { name: 'meat', amount: 5 },
+    ],
   };
 
   fixedRecipe2: RecipeType = {
@@ -24,7 +27,11 @@ export class RecipeService {
     description: "our 2nd recipe, it's hardcoded",
     imagePath:
       'https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHJlY2lwZXxlbnwwfHwwfHw%3D&w=1000&q=80',
-    ingredients: ['fruits (10)', 'cheese (15)', 'chiken (5kg)'],
+    ingredients: [
+      { name: 'fruits', amount: 10 },
+      { name: 'cheese', amount: 15 },
+      { name: 'chiken', amount: 5 },
+    ],
   };
 
   Recipes: RecipeType[] = [];
