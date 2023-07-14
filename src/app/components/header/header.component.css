@@ -1,0 +1,8 @@
+.deactive {
+  border-radius: 9px;
+}
+.active-item {
+  background-color: #707071;
+  color: #f8f9fa;
+  border-radius: 9px;
+}

@@ -1,17 +1,9 @@
-<app-header
-  (showRecipe)="changeView($event)"
-  (showShoppingList)="changeView($event)"
-></app-header>
+<app-header></app-header>
 
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <app-recipes *ngIf="currentView == 'recipe'"> </app-recipes>
-
-      <app-shopping-list
-        *ngIf="currentView == 'shoppingList'"
-      ></app-shopping-list>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
-<br /><br /><br /><br /><br /><br /><br /><br /><br />
