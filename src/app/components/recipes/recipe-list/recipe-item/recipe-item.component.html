@@ -1,7 +1,8 @@
 <a
-  href="#"
+  style="cursor: pointer"
   class="list-group-item list-group-item-action"
-  (click)="getRecipe(currentRecipe.id)"
+  [routerLink]="[currentRecipe.id]"
+  routerLinkActive="selected-recipe"
 >
   <div class="row">
     <div class="pull-left col-6">

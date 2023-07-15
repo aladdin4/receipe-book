@@ -8,10 +8,10 @@ export class RecipeType {
   ingredients: Ingredient[];
 
   constructor(
-    id: number,
-    name: string,
-    desc: string,
-    path: string,
+    id: number = 0,
+    name: string = '',
+    desc: string = '',
+    path: string = '',
     ingredList: Ingredient[]
   ) {
     this.id = id;

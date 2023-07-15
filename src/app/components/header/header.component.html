@@ -1,5 +1,5 @@
 <nav class="navbar ps-3 pe-5 navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Recipe Book</a>
+  <a class="navbar-brand" routerLink="/recipes">Recipe Book</a>
   <button
     class="navbar-toggler list"
     type="button"
@@ -34,13 +34,11 @@
     </div>
 
     <div class="dropdown" appDropdown>
-      <a class="btn btn-light dropdown-toggle me-3" href="#" role="button"
-        >Manage</a
-      >
+      <a class="btn btn-light dropdown-toggle me-3" role="button">Manage</a>
 
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#">Save Data</a>
-        <a class="dropdown-item" href="#">Fetch Data</a>
+        <a class="dropdown-item" style="cursor: pointer">Save Data</a>
+        <a class="dropdown-item" style="cursor: pointer">Fetch Data</a>
       </div>
     </div>
   </div>
