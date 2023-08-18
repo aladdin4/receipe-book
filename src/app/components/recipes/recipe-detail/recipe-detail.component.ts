@@ -4,7 +4,7 @@ import { RecipeType } from '../../../Shared/recipe.model';
 import { RecipeService } from 'src/app/services/recipeService/recipe-service.service';
 import { ShoppinglistService } from 'src/app/services/shoppinhlistService/shoppinglist.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription, interval, map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -13,17 +13,13 @@ import { Observable } from 'rxjs';
 })
 export class RecipeDetailComponent {
   recipe: RecipeType;
+  recipeListSubscription: Subscription;
   constructor(
     private recipeService: RecipeService,
     private shoppinglistService: ShoppinglistService,
     private route: ActivatedRoute,
     private router: Router
   ) {
-    //subscribe for Selected Recipe
-    this.recipeService.RecipeChanged.subscribe((selectedRecipe) => {
-      this.recipe = selectedRecipe;
-    });
-
     route.params.subscribe((param) => {
       recipeService.GetRecipe(Number(param.id));
     });
@@ -32,7 +28,17 @@ export class RecipeDetailComponent {
       router.navigate(['/recipes/0']);
     }
   }
+  ngOnInit(): void {
+    this.recipeListSubscription = this.recipeService.RecipeChanged.subscribe(
+      (selectedRecipe) => {
+        this.recipe = selectedRecipe;
+      }
+    );
+  }
 
+  ngOnDestroy(): void {
+    this.recipeListSubscription.unsubscribe();
+  }
   addToShoppingList() {
     this.shoppinglistService.addNewIngredientList(this.recipe.ingredients);
   }

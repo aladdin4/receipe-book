@@ -13,9 +13,6 @@ export class ShoppinglistService {
     this.Ingredients.push(ingredient);
   }
   addNewIngredientList(ingredientList: Ingredient[]) {
-    this.Ingredients.push(...ingredientList); //es6 spread feature
-    // for (let index = 0; index < ingredientList.length; index++) {
-    //   this.Ingredients.push(ingredientList[index]);
-    // }
+    this.Ingredients.push(...ingredientList);
   }
 }
