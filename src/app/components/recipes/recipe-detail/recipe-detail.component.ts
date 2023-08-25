@@ -13,7 +13,8 @@ import { Observable, Subscription, interval, map, tap } from 'rxjs';
 })
 export class RecipeDetailComponent {
   recipe: RecipeType;
-  recipeListSubscription: Subscription;
+  currentRecipeSubscription: Subscription;
+
   constructor(
     private recipeService: RecipeService,
     private shoppinglistService: ShoppinglistService,
@@ -21,7 +22,7 @@ export class RecipeDetailComponent {
     private router: Router
   ) {
     route.params.subscribe((param) => {
-      recipeService.GetRecipe(Number(param.id));
+      this.recipeService.SetCurrentRecipe(param.id);
     });
 
     if (this.recipe == null) {
@@ -29,17 +30,18 @@ export class RecipeDetailComponent {
     }
   }
   ngOnInit(): void {
-    this.recipeListSubscription = this.recipeService.RecipeChanged.subscribe(
-      (selectedRecipe) => {
-        this.recipe = selectedRecipe;
-      }
-    );
+    this.currentRecipeSubscription =
+      this.recipeService.activatedRecipeSubject.subscribe((recipe) => {
+        this.recipe = recipe;
+      });
   }
 
   ngOnDestroy(): void {
-    this.recipeListSubscription.unsubscribe();
+    this.currentRecipeSubscription.unsubscribe();
   }
   addToShoppingList() {
-    this.shoppinglistService.addNewIngredientList(this.recipe.ingredients);
+    this.shoppinglistService.addIngredientsToShoppingList(
+      this.recipe.ingredients
+    );
   }
 }

@@ -1,1 +1,126 @@
-<p>recipe-edit works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="recipeEditForm">
+      <!-- name -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              aria-describedby="name"
+              formControlName="name"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- image -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imagePath"
+              formControlName="imagePath"
+              aria-describedby="imagePath"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <img
+            src=""
+            alt=""
+            class="img-responsive"
+            style="width: -webkit-fill-available"
+          />
+        </div>
+      </div>
+
+      <!-- description -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              class="form-control"
+              id="description"
+              rows="6"
+              formControlName="description"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <!-- Add Ingredient -->
+      <div class="row mt-4">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-outline-secondary btn-style me-3"
+            (click)="addIngredient()"
+          >
+            + Ingredients:
+          </button>
+        </div>
+      </div>
+      <!-- Ingredients List -->
+      <div class="row mt-2">
+        <div class="col-xs-12">
+          <ng-container formArrayName="ingredients">
+            <ng-container
+              *ngFor="let item of ingredients.controls; let i = index"
+            >
+              <div class="row" style="margin-top: 17px" [formGroup]="item">
+                <div class="col-8">
+                  <input
+                    class="form-control"
+                    aria-describedby="name"
+                    id="alias-{{ i }}"
+                    type="text"
+                    formControlName="name"
+                  />
+                </div>
+                <div class="col-2">
+                  <input
+                    type="number"
+                    class="form-control"
+                    formControlName="amount"
+                  />
+                </div>
+                <div class="col-2">
+                  <button class="btn btn-danger" (click)="removeIngredient(i)">
+                    X
+                  </button>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- Save and Cancel -->
+      <div class="row mt-4">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-success btn-style float-end me-3"
+            (click)="onSubmit()"
+          >
+            Save
+          </button>
+
+          <button type="submit" class="btn btn-danger btn-style float-end me-3">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

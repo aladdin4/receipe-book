@@ -10,7 +10,4 @@ import { RecipeService } from 'src/app/services/recipeService/recipe-service.ser
 export class RecipeListComponent {
   constructor(private recipeService: RecipeService) {}
   Recipes: RecipeType[] = this.recipeService.Recipes;
-  addNewRecipe() {
-    this.recipeService.AddRecipe();
-  }
 }

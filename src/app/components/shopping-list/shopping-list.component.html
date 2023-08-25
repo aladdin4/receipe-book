@@ -3,14 +3,31 @@
     <app-shopping-edit></app-shopping-edit>
     <hr />
     <div class="list-group">
-      <a
-        href="#"
-        class="list-group-item list-group-item-action"
-        aria-current="true"
-        *ngFor="let ingred of Ingredients"
+      <div
+        *ngFor="let ingred of Ingredients; index as i"
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+        "
       >
-        {{ ingred.name }} ({{ ingred.amount }})
-      </a>
+        <a
+          (click)="editItem(i)"
+          class="list-group-item list-group-item-action"
+          aria-current="true"
+          style="
+            cursor: pointer;
+            margin-right: 34px;
+            border-radius: 7px;
+            margin-bottom: 10px;
+          "
+        >
+          {{ ingred.name }} ({{ ingred.amount }})
+        </a>
+        <button class="btn btn-danger me-3" (click)="deleteItem(i)">
+          Delete
+        </button>
+      </div>
     </div>
   </div>
 </div>

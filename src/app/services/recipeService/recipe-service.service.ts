@@ -1,6 +1,7 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { RecipeType } from 'src/app/Shared/recipe.model';
 import { ShoppinglistService } from '../shoppinhlistService/shoppinglist.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -34,22 +35,19 @@ export class RecipeService {
     ],
   };
 
+  recipeListSubject = new Subject<RecipeType[]>();
+  activatedRecipeSubject = new Subject<RecipeType>();
+
   Recipes: RecipeType[] = [];
-  AddRecipe() {
-    if (this.Recipes.length % 2) {
-      this.Recipes.push({ ...this.fixedRecipe });
-      this.Recipes[this.Recipes.length - 1].id = this.Recipes.length;
-    } else {
-      this.Recipes.push({ ...this.fixedRecipe2 });
-      this.Recipes[this.Recipes.length - 1].id = this.Recipes.length;
-    }
+  AddRecipe(recipe: RecipeType) {
+    this.Recipes.push(recipe);
+    this.recipeListSubject.next(this.Recipes);
   }
-  RecipeChanged: EventEmitter<RecipeType> = new EventEmitter();
-  //emit to activate observable
-  GetRecipe(id) {
+
+  SetCurrentRecipe(id) {
     this.Recipes.forEach((recipe) => {
       if (recipe.id == id) {
-        this.RecipeChanged.emit(recipe);
+        this.activatedRecipeSubject.next(recipe);
       }
     });
   }
