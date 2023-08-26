@@ -40,6 +40,7 @@ export class RecipeService {
 
   Recipes: RecipeType[] = [];
   AddRecipe(recipe: RecipeType) {
+    recipe.id = this.Recipes.length + 1;
     this.Recipes.push(recipe);
     this.recipeListSubject.next(this.Recipes);
   }
