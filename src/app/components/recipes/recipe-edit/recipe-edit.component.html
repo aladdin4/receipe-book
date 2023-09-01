@@ -23,8 +23,17 @@
             >
           </div>
         </div>
+        <small
+          style="color: red"
+          *ngIf="
+            recipeEditForm.get('name').invalid &&
+            recipeEditForm.get('name').touched
+          "
+        >
+          *Recipe Name is Required
+        </small>
       </div>
-
+      <br />
       <!-- image -->
       <div class="row">
         <div class="col-xs-12">
@@ -128,6 +137,21 @@
                   <button class="btn btn-danger" (click)="removeIngredient(i)">
                     X
                   </button>
+                </div>
+                <div style="color: red; display: flex">
+                  <small
+                    *ngIf="item.get('name').invalid && item.get('name').touched"
+                  >
+                    *Ingredient Name is Required
+                  </small>
+                  <small
+                    style="margin-left: auto"
+                    *ngIf="
+                      item.get('amount').invalid && item.get('amount').touched
+                    "
+                  >
+                    *Ingredient Amount is Required
+                  </small>
                 </div>
               </div>
             </ng-container>
