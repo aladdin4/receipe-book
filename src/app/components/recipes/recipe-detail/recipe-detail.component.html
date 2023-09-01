@@ -8,13 +8,11 @@
       />
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <h1>{{ recipe.id }}. {{ recipe.name }}</h1>
+  <div class="row" style="margin-top: 17px">
+    <div class="col-9">
+      <h1>{{ recipe.name }}</h1>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
+    <div class="col-3" style="padding-top: 10px">
       <div class="btn-group" appDropdown role="group">
         <button
           id="btnGroupDrop1"
@@ -47,16 +45,22 @@
             >
           </li>
           <li>
-            <a class="dropdown-item" style="cursor: pointer">Delete Recipe</a>
+            <a
+              class="dropdown-item"
+              style="cursor: pointer"
+              (click)="deleteRecipe()"
+              >Delete Recipe</a
+            >
           </li>
         </ul>
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-12">{{ recipe.description }}</div>
   </div>
-  <div class="row">
+  <div class="row" style="margin: 10px 0px">
     <table class="col-12 table table-bordered table-hover">
       <thead>
         <tr>

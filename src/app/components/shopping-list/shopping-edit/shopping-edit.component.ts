@@ -55,7 +55,6 @@ export class ShoppingEditComponent {
   }
 
   newIngredientAdded(index: number = 0) {
-    console.log('called');
     // Create a new ingredient object using the values from the form
     let newIng: Ingredient = {
       name: this.recipeEditForm.get('name').value,

@@ -18,6 +18,7 @@ export class ShoppingListComponent {
       this.shoppinglistService.ShoppingListSubject.subscribe(
         (ingredientList) => (this.Ingredients = ingredientList)
       );
+    this.shoppinglistService.getCurrentShoppingList();
   }
   ngOnDestroy(): void {
     this.shoppingListSubscription.unsubscribe();
