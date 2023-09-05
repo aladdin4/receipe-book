@@ -26,8 +26,13 @@ export class AuthComponent {
     ],
   });
 
-  onSubmit() {
+  signUp() {
     console.log(this.authForm.value);
-    this.http.post('api key sign up', this.authForm.value).subscribe();
+    this.http
+      .post(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCvtLOEiXp2Z05x31Xxg1R6P4-6sVwRCxk',
+        this.authForm.value
+      )
+      .subscribe();
   }
 }
