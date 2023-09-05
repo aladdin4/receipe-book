@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RecipeType } from 'src/app/Shared/recipe.model';
 import { ShoppinglistService } from '../shoppinhlistService/shoppinglist.service';
-import { Subject, map } from 'rxjs';
+import { Subject, delay, from, map, of, timeout } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -14,6 +14,7 @@ export class RecipeService {
   recipeListSubject = new Subject<RecipeType[]>();
   activatedRecipeSubject = new Subject<RecipeType>();
 
+  currentRecipeId = -1;
   getRecipes() {
     this.Recipes = [];
     this.http
@@ -28,6 +29,9 @@ export class RecipeService {
       )
       .subscribe((recipes) => {
         this.recipeListSubject.next(this.Recipes);
+        if (this.currentRecipeId > -1) {
+          this.SetCurrentRecipe(this.currentRecipeId);
+        }
       });
   }
   SaveRecipe(recipe: any) {
@@ -40,10 +44,8 @@ export class RecipeService {
       } else {
         recipe.id = 1;
       }
-
       this.Recipes.push(recipe);
     }
-
     this.http
       .put(
         'https://food-store-3ea3e-default-rtdb.firebaseio.com/recipes.json',
@@ -62,21 +64,7 @@ export class RecipeService {
         }
       });
     } else {
-      this.http
-        .get(
-          'https://food-store-3ea3e-default-rtdb.firebaseio.com/recipes/.json'
-        )
-        .subscribe((recipes: RecipeType[]) => {
-          recipes.forEach((recipe) => {
-            console.log('recipe.id', recipe.id);
-            console.log('id', id);
-
-            if (recipe.id == id) {
-              console.log(recipe);
-              this.activatedRecipeSubject.next(recipe);
-            }
-          });
-        });
+      this.currentRecipeId = id;
     }
   }
   deleteRecipe(id: number) {
