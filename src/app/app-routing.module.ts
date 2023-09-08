@@ -6,11 +6,13 @@ import { RecipeDetailComponent } from './components/recipes/recipe-detail/recipe
 import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
 import { AuthComponent } from './components/auth/auth-component/auth.component';
+import { AuthGuard } from './Shared/auth-guard.guard';
 
 const routes: Routes = [
   {
     path: 'recipes',
     component: RecipesComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', component: RecipeStartComponent },
       { path: 'new', component: RecipeEditComponent },
@@ -18,7 +20,11 @@ const routes: Routes = [
       { path: ':id/edit', component: RecipeEditComponent },
     ],
   },
-  { path: 'shoppinglist', component: ShoppingListComponent },
+  {
+    path: 'shoppinglist',
+    component: ShoppingListComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'login', component: AuthComponent },
   { path: '**', redirectTo: 'recipes' },
 ];

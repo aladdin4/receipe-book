@@ -13,7 +13,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   constructor(private recipeService: RecipeService) {
     this.recipeListSubsriber = this.recipeService.recipeListSubject.subscribe(
       (recipes) => {
-        console.log('received recipes are:', recipes);
         this.recipes = recipes;
       }
     );

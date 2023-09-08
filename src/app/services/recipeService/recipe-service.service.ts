@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { RecipeType } from 'src/app/Shared/recipe.model';
-import { ShoppinglistService } from '../shoppinhlistService/shoppinglist.service';
-import { Subject, delay, from, map, of, timeout } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Subject, Subscription, exhaustMap, map } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { AuthService } from '../authService/auth-service.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,10 @@ import { HttpClient } from '@angular/common/http';
 export class RecipeService {
   constructor(private http: HttpClient) {}
   Recipes: RecipeType[] = [];
-
   recipeListSubject = new Subject<RecipeType[]>();
   activatedRecipeSubject = new Subject<RecipeType>();
-
   currentRecipeId = -1;
+
   getRecipes() {
     this.Recipes = [];
     this.http
@@ -55,7 +55,6 @@ export class RecipeService {
         this.getRecipes();
       });
   }
-
   SetCurrentRecipe(id) {
     if (this.Recipes.length > 0) {
       this.Recipes.forEach((recipe) => {

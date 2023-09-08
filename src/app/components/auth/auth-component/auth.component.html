@@ -37,11 +37,20 @@
         <button
           type="submit"
           class="btn btn-primary"
-          style="margin-top: 17px"
+          style="margin-top: 17px; margin-right: 17px"
           [disabled]="authForm.invalid"
           (click)="signUp()"
         >
-          Submit2
+          Sign Up
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="margin-top: 17px"
+          [disabled]="authForm.invalid"
+          (click)="signIn()"
+        >
+          Sign In
         </button>
       </div>
     </form>
